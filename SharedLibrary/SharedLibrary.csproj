@@ -7,7 +7,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <Compile Include="..\..\..\Study_Unity\EatLiveStream\Assets\SharedLibrary\*.cs">
+        <Compile Include="..\..\..\Study_Unity\UnityProject\Assets\SharedLibrary\*.cs">
             <Link>%(Filename)%(Extension)</Link>
         </Compile>
     </ItemGroup>
