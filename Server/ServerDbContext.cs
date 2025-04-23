@@ -9,7 +9,7 @@ public class ServerDbContext : DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<User>().ToTable("users");
-        modelBuilder.Entity<User>().HasKey(user => new { user.device });
+        modelBuilder.Entity<User>().HasKey(user => new { user.playerId });
     }
 
     public DbSet<User> Users { get; set; }

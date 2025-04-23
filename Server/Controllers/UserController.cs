@@ -14,21 +14,21 @@ public class UserController : ControllerBase
         _userService = userService;
     }
     
-    [HttpGet("{device}/{playerId}")]
-    public async Task<IActionResult> Get([FromRoute] User user)
+    [HttpGet("{deviceId}")]
+    public async Task<IActionResult> GetUserAsync([FromRoute] string deviceId)
     {
-        // Add user to DB
-        User newUser = await _userService.AddUserAsync(user);
+        // Checking is user exist
+        User user = await _userService.GetUserAsync(deviceId);
 
-        return Ok(newUser);
+        return Ok(user);
     }
 
     [HttpPost]
-    public async Task<IActionResult> Post([FromBody] User user)
+    public async Task<IActionResult> AddUserAsync([FromBody] User user)
     {
         // Add user to DB
-        User newUser = await _userService.AddUserAsync(user);
+        User userInfo = await _userService.AddUserAsync(user);
         
-        return Ok(newUser);
+        return Ok(userInfo);
     }
 } 
